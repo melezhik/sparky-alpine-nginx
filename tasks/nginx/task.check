@@ -1,0 +1,11 @@
+note: nginx start command should succeed
+regexp: [ "Starting nginx"  \s+ "..." \s+ "[ ok ]" || "WARNING: nginx has already been started" ]
+
+note: nginx should be started
+status: started
+
+note: default nginx configuration should return 404 Not Found
+begin:
+HTTP/1.1 404 Not Found
+Server: nginx
+end:
